@@ -4,120 +4,114 @@
 
 vDataJSON.tpl.template4json =  `
 
-  <!-- Object: root --> 
-*  
+<!-- Created with CSV2WikiChart - URL: https://niebert.github.io/csv2wikichart_app -->
+*
 {{#ifcond type "==" "line"}}
-  {{{type}}}
-  <!--   Attribute 'type' has value 'line' in output format 'markdown' -->
+|type={{{type}}}
+<!--   Attribute 'type' has value 'line' in output format 'mediawiki' -->
 {{/ifcond}}
 {{#ifcond type "==" "area"}}
-  {{{type}}}
-  <!--   Attribute 'type' has value 'area' in output format 'markdown' -->
-{{/ifcond}} 
-*  {{{linewidth}}} 
-*  
+|type={{{type}}}
+<!--   Attribute 'type' has value 'area' in output format 'mediawiki' -->
+{{/ifcond}}
+{{#ifcond type "==" "stackedarea"}}
+|type={{{type}}}
+<!--   Attribute 'type' has value 'stackedarea' as an additive, aggregated y-values to visualize fractions of the total sum -->
+{{/ifcond}}
 {{#ifcond interpolate "==" "line"}}
-  {{{interpolate}}}
-  <!--   Attribute 'interpolate' has value 'line' in output format 'markdown' -->
+|linewidth={{{linewidth}}}
+<!--   Attribute 'interpolate' has value 'line' with thinin output format 'mediawiki' -->
 {{/ifcond}}
 {{#ifcond interpolate "==" "curve"}}
-  {{{interpolate}}}
-  <!--   Attribute 'interpolate' has value 'curve' in output format 'markdown' -->
+|linewidth={{{linewidth}}}
+<!--   Attribute 'interpolate' has value 'curve' in output format 'mediawiki' -->
 {{/ifcond}}
 {{#ifcond interpolate "==" "none"}}
-  {{{interpolate}}}
-  <!--   Attribute 'interpolate' has value 'none' in output format 'markdown' -->
-{{/ifcond}} 
-*  {{{showSymbols}}}
- <!-- String Format: text --> 
-*  {{{width}}} 
-*  {{{height}}} 
-*  
+|linewidth=0
+<!--   Attribute 'interpolate' has value 'none' and line thickness was set to 0 so lines disappear -->
+{{/ifcond}}
+{{#ifcond showSymbols "==" "yes"}}
+|showSymbols=1
+{{/ifcond}}
+{{#ifcond showSymbols "==" "no"}}
+{{#ifcond interpolate "==" "none"}}
+<!-- showSymbols was set to 'no' but interpolate was set to 'none' too.
+     This configuration of chart will lead to the fact that y-values will not be visible.
+     showSymbols was set to '1' as error correction -->
+|showSymbols=1
+{{/ifcond}}
+{{#ifcond interpolate "!=" "none"}}
+|showSymbols=0
+{{/ifcond}}
+{{/ifcond}}
+<!-- Width and Height of the rendered image in Wikiversity, Wikipedia, ... -->
+|width={{{width}}}
+|height={{{height}}}
 {{#ifcond colorpalette "==" "default"}}
-  {{{colorpalette}}}
-  <!--   Attribute 'colorpalette' has value 'default' in output format 'markdown' -->
+<!--   Attribute 'colorpalette' has value 'default' in CSV2WikiChart
+       therefore the curves use the default colors of the Chart template  -->
 {{/ifcond}}
 {{#ifcond colorpalette "==" "user-defined"}}
-  {{{colorpalette}}}
-  <!--   Attribute 'colorpalette' has value 'user-defined' in output format 'markdown' -->
-{{/ifcond}} 
-*  {{{colors}}}
- <!-- String Format: text --> 
-*  {{{showValues}}}
- <!-- String Format: text --> 
-*  {{{xAxisAngle}}} 
-*  
-  <!-- Object: root.axis --> 
+<!--   Attribute 'colorpalette' has value 'user-defined' in output format 'mediawiki'
+       therefore the colors of the curve are defined by the curve colors for the datarow -->
+|colors={{{colors}}}
+{{/ifcond}}
+{{#ifcond showValues "==" "yes"}}
+|showValues=0
+{{/ifcond}}
+<!-- Object: root.axis -->
 {{#with axis}}
-*  {{{logscale}}}
- <!-- String Format: text --> 
-*  
-  <!-- Object: root.axis.x --> 
+<!-- Object: root.axis.x -->
 {{#with x}}
-*  {{{title}}}
- <!-- String Format: text --> 
-*  {{{angle}}} 
-*  
-{{#ifcond scaletype "==" "linear"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'linear' in output format 'markdown' -->
+|xAxisTitle={{{title}}}
+<!-- xAxisAngle rotates the x axis labels by the specified angle. Recommended values are: -45, +45, -90, +90 -->
+|xAxisAngle={{{angle}}}
+{{#ifcond scaletype "!=" "linear"}}
+<!-- 'scaletype' was set to value '{{{scaletype}}}'
+      scale types of the x axes could be set to 'linear' for linear scale (default), 'log' for logarithmic scale and 'sqrt' for square root scale  -->
+|xScaleType={{{scaletype}}}
 {{/ifcond}}
 {{#ifcond scaletype "==" "log"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'log' in output format 'markdown' -->
+|xAxisMin = 0.1 <!--Needed to avoid trying to show the values x of 0, impossible on log scale because log(0)=-infinity -->
 {{/ifcond}}
-{{#ifcond scaletype "==" "sqrt"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'sqrt' in output format 'markdown' -->
-{{/ifcond}} 
 {{/with}}
-  <!-- Object: root.axis.x --> 
-*  
-  <!-- Object: root.axis.y --> 
+<!-- Object: root.axis.y -->
 {{#with y}}
-*  {{{title}}}
- <!-- String Format: text --> 
-*  
-{{#ifcond scaletype "==" "linear"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'linear' in output format 'markdown' -->
+|yAxisTitle={{{title}}}
+{{#ifcond scaletype "!=" "linear"}}
+<!-- 'scaletype' was set to value '{{{scaletype}}}'
+      scale types of the x axes could be set to 'linear' for linear scale (default), 'log' for logarithmic scale and 'sqrt' for square root scale  -->
+|yScaleType={{{scaletype}}}
 {{/ifcond}}
 {{#ifcond scaletype "==" "log"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'log' in output format 'markdown' -->
+|yAxisMin = 0.1 <!--Needed to avoid trying to show the values y2, y3 of 0, impossible on log scale because log(0)=-infinity -->
 {{/ifcond}}
-{{#ifcond scaletype "==" "sqrt"}}
-  {{{scaletype}}}
-  <!--   Attribute 'scaletype' has value 'sqrt' in output format 'markdown' -->
-{{/ifcond}} 
 {{/with}}
-  <!-- Object: root.axis.y --> 
+<!-- End Object: root.axis.y -->
 {{/with}}
-  <!-- Object: root.axis --> 
-*  
-  <!-- Array: root.data --> 
-<!-- Array Path: root.data  -->
+<!-- End Object: root.axis -->
+<!-- Begin Array: root.data -->
 {{#each data}}
 * Sub-Type of Array Element: 'object'
-  <!-- Object: root.data.* --> 
+  <!-- Object: root.data.* -->
 {{#with this}}
 *  {{{name}}}
- <!-- String Format: text --> 
+ <!-- String Format: text -->
 *  {{{collist}}}
- <!-- String Format: text --> 
-*  
-  <!-- Array: root.data.*.col --> 
+ <!-- String Format: text -->
+*
+  <!-- Array: root.data.*.col -->
 <!-- Array Path: root.data.*.col  -->
 {{#each col}}
-* {{{this}}} 
+* {{{this}}}
 {{/each}}
-  <!-- Array: root.data.*.col --> 
+  <!-- Array: root.data.*.col -->
 *  {{{color}}}
- <!-- String Format: color --> 
+ <!-- String Format: color -->
 *  {{{title}}}
- <!-- String Format: text --> 
+ <!-- String Format: text -->
 {{/with}}
-  <!-- Object: root.data.* --> 
+  <!-- Object: root.data.* -->
 {{/each}}
-  <!-- Array: root.data --> 
+  <!-- Array: root.data -->
   <!-- Object: root -->`;

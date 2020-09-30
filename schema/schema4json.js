@@ -40,7 +40,6 @@ vDataJSON.schema4json =  {
         "height",
         "colorpalette",
         "colors",
-        "showValues",
         "xAxisAngle",
         "axis",
         "data"
@@ -94,7 +93,11 @@ vDataJSON.schema4json =  {
             "type": "string",
             "id": "/properties/showSymbols",
             "title": "ShowSymbols",
-            "default": "",
+            "enum": [
+                "yes",
+                "no"
+            ],
+            "default": "yes",
             "format": "text",
             "description": "Description for 'showSymbols' Type: 'string' Path: '/properties/showSymbols'",
             "options": {
@@ -128,13 +131,13 @@ vDataJSON.schema4json =  {
             "type": "string",
             "id": "/properties/colorpalette",
             "title": "Colorpalette",
-            "default": "default",
+            "default": "user-defined",
             "enum": [
                 "default",
                 "user-defined"
             ],
             "format": "text",
-            "description": "Description for 'colorpalette' Type: 'string' Path: '/properties/colorpalette'",
+            "description": "Defines the 'colorpalette' for the curves in the graph. If set to 'default' the colors for the data column are ignored",
             "options": {
                 "hidden": false
             },
@@ -144,32 +147,41 @@ vDataJSON.schema4json =  {
             "type": "string",
             "id": "/properties/colors",
             "title": "Colors",
-            "default": "",
+            "default": "red,blue,green,black,yellow,#c0c0c0",
             "format": "text",
-            "description": "Description for 'colors' Type: 'string' Path: '/properties/colors'",
+            "description": "Hidden Comma Separated Values of 'colors' aggregated from the curve colors before export - Type: 'string' Path: '/properties/colors'",
             "options": {
                 "hidden": false
             },
             "propertyOrder": 80
         },
-        "showValues": {
-            "type": "string",
-            "id": "/properties/showValues",
-            "title": "ShowValues",
-            "default": "",
-            "format": "text",
-            "description": "Description for 'showValues' Type: 'string' Path: '/properties/showValues'",
-            "options": {
-                "hidden": false
-            },
-            "propertyOrder": 90
-        },
         "xAxisAngle": {
             "type": "integer",
             "id": "/properties/xAxisAngle",
-            "title": "XAxisAngle",
-            "default": -40,
-            "description": "A description for 'xAxisAngle'  Type: 'integer'",
+            "title": "x-Axis Angle",
+            "default": "0",
+            "enum": [
+                "0",
+                "-10",
+                "-20",
+                "-30",
+                "-40",
+                "-50",
+                "-60",
+                "-70",
+                "-80",
+                "-90",
+                "10",
+                "20",
+                "30",
+                "40",
+                "50",
+                "60",
+                "70",
+                "80",
+                "90"
+            ],
+            "description": "The x-Axis Angle defines the angle for the x-values, e.g. for dates so that the x-value do not overlap. Use -40 degrees for dates or long x-values e.g. 1500000",
             "options": {
                 "hidden": false
             },
@@ -234,11 +246,26 @@ vDataJSON.schema4json =  {
                             "propertyOrder": 10
                         },
                         "angle": {
-                            "type": "integer",
+                            "type": "string",
                             "id": "/properties/axis/properties/x/properties/angle",
-                            "title": "Angle",
-                            "default": 0,
-                            "description": "A description for 'angle'  Type: 'integer'",
+                            "title": "x-Axis Angle",
+                            "default": "0",
+                            "enum": [
+                                "0",
+                                "-15",
+                                "-30",
+                                "-45",
+                                "-60",
+                                "-75",
+                                "-90",
+                                "15",
+                                "30",
+                                "45",
+                                "60",
+                                "75",
+                                "90"
+                            ],
+                            "description": "The x-Axis Angle defines the angle for the x-values, e.g. for dates so that the x-value do not overlap. Use -40 degrees for dates or long x-values e.g. 1500000",
                             "options": {
                                 "hidden": false
                             },
@@ -332,7 +359,7 @@ vDataJSON.schema4json =  {
             "items": {
                 "type": "object",
                 "id": "/properties/data/items",
-                "title": "Title Root Data ",
+                "title": "Data ",
                 "options": {
                     "disable_collapse": false,
                     "disable_edit_json": false,
@@ -351,10 +378,10 @@ vDataJSON.schema4json =  {
                     "name": {
                         "type": "string",
                         "id": "/properties/data/items/properties/name",
-                        "title": "Name",
-                        "default": "",
+                        "title": "Chart Variable Name - Automated Hidden",
+                        "default": "yX",
                         "format": "text",
-                        "description": "Description for 'name' Type: 'string' Path: '/properties/data/items/properties/name'",
+                        "description": "These variable names are automated set as y1, y2, y3, ... according to index",
                         "options": {
                             "hidden": false
                         },
@@ -363,10 +390,10 @@ vDataJSON.schema4json =  {
                     "collist": {
                         "type": "string",
                         "id": "/properties/data/items/properties/collist",
-                        "title": "Collist",
+                        "title": "Comma Separated Column List",
                         "default": "",
                         "format": "text",
-                        "description": "Description for 'collist' Type: 'string' Path: '/properties/data/items/properties/collist'",
+                        "description": "Thes comma seperated y-values in  'collist' a populated and update by json_post_process() and the values are automated concatenated for y1, y2, y3, ... ",
                         "options": {
                             "hidden": false
                         },
@@ -389,9 +416,8 @@ vDataJSON.schema4json =  {
                         "items": {
                             "type": "number",
                             "id": "/properties/data/items/properties/col/items",
-                            "title": "Title Root Data Col ",
-                            "default": 23.5,
-                            "description": "A description for 'items'  Type: 'number'",
+                            "title": "{{name}} - {{title}}",
+                            "default": 0.0,
                             "options": {
                                 "hidden": false
                             }
@@ -401,10 +427,10 @@ vDataJSON.schema4json =  {
                     "color": {
                         "type": "string",
                         "id": "/properties/data/items/properties/color",
-                        "title": "Color",
-                        "default": "",
+                        "title": "Color y-Values",
+                        "default": "#000000",
                         "format": "color",
-                        "description": "Description for 'color' Type: 'string' Path: '/properties/data/items/properties/color'",
+                        "description": "The defined color is used for line, curve in the graph if 'colorpalette' is set to 'user-defined for 'colorpalette=default' the default colors are used",
                         "options": {
                             "hidden": false
                         },
@@ -416,7 +442,7 @@ vDataJSON.schema4json =  {
                         "title": "Title",
                         "default": "",
                         "format": "text",
-                        "description": "Description for 'title' Type: 'string' Path: '/properties/data/items/properties/title'",
+                        "description": "Description for the y-values'",
                         "options": {
                             "hidden": false
                         },

@@ -1,0 +1,34 @@
+{{Graph:Chart
+|type=line
+|linewidth=1
+|showSymbols=1
+|width=600
+|height=480<!--height = 80 X <no. of log10 cycles in y axis>-->
+|colors=#FF0000,#00FF00,#000088,#000000
+|showValues=
+|xAxisTitle=Date
+|xAxisAngle=-40
+|yAxisTitle=No. of cases
+|legend=Legend
+
+<!-- When you update this chart, please clipboard copy the "x=..." and "|y1=..." lines to the linear charts, update second and third datasets from "y2=" and "y3=" to "y1=" -->
+
+<!-- Search string CASES_X (on this log scale combined chart, we use only one x axis for all three datasets!)-->
+|x= 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
+
+|y1Title=TOTAL confirmed cases
+<!-- Search string CASES_Y -->
+|y1=278,309,571,830,1297,1985,2761,4537,5997,7736,9720, 11821,14411,17238,20471,24363,28060,31211,34598,37251,40235,42708,44730,46550,48548
+
+|y2Title=Real cases DEC 1 start
+<!-- Search String NEW_Y -->
+|y2= 1931,2289,2712,3215,3810,4516,5352,6343,7518,8910,10561,12516,14834,17581,20837,24696,29269,34689,41113,48726,57749,68443,81118,96139,113942
+
+|y3Title=Real cases NOV 1 start
+<!-- Search String NEW_Y -->
+|y3= 4324,4860,5463,6140,6902,7758,8720,9802,11018,12385,13921,15647,17588,19770,22222,24978,28076,31558,35473,39872,44818,50377,56625,63648,71543
+
+|yScaleType=log<!--This is the line that makes this plot have a log axis-->
+|yAxisMin = 1 <!--Needed to avoid trying to show the values y2, y3 of 0, impossible on log scale because log(0)=-infinity -->
+|yGrid= |xGrid=
+}}

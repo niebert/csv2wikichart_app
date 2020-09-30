@@ -11,7 +11,6 @@ vDataJSON.db_init =  {
     "height": 480,
     "colorpalette": "default",
     "colors": "",
-    "showValues": "",
     "xAxisAngle": -40,
     "axis": {
         "logscale": "",
