@@ -40,6 +40,7 @@ vDataJSON.schema4json =  {
         "height",
         "colorpalette",
         "colors",
+        "showValues",
         "xAxisAngle",
         "axis",
         "data"
@@ -155,10 +156,26 @@ vDataJSON.schema4json =  {
             },
             "propertyOrder": 80
         },
+        "showValues": {
+            "type": "string",
+            "id": "/properties/showValues",
+            "title": "Show Values as Text",
+            "enum": [
+                "yes",
+                "no"
+            ],
+            "default": "no",
+            "format": "text",
+            "description": "The setting 'showValues' defines if text values are added to the graph",
+            "options": {
+                "hidden": false
+            },
+            "propertyOrder": 90
+        },
         "xAxisAngle": {
             "type": "integer",
             "id": "/properties/xAxisAngle",
-            "title": "x-Axis Angle",
+            "title": "XAxisAngle",
             "default": "0",
             "enum": [
                 "0",
@@ -181,7 +198,7 @@ vDataJSON.schema4json =  {
                 "80",
                 "90"
             ],
-            "description": "The x-Axis Angle defines the angle for the x-values, e.g. for dates so that the x-value do not overlap. Use -40 degrees for dates or long x-values e.g. 1500000",
+            "description": "A description for 'xAxisAngle'  Type: 'integer'",
             "options": {
                 "hidden": false
             },
@@ -199,14 +216,27 @@ vDataJSON.schema4json =  {
                 "hidden": false
             },
             "defaultProperties": [
+                "logscale",
                 "x",
                 "y"
             ],
             "properties": {
+                "logscale": {
+                    "type": "string",
+                    "id": "/properties/axis/properties/logscale",
+                    "title": "Logscale",
+                    "default": "",
+                    "format": "text",
+                    "description": "Description for 'logscale' Type: 'string' Path: '/properties/axis/properties/logscale'",
+                    "options": {
+                        "hidden": false
+                    },
+                    "propertyOrder": 10
+                },
                 "x": {
                     "type": "object",
                     "id": "/properties/axis/properties/x",
-                    "title": "x-Axis",
+                    "title": "X",
                     "options": {
                         "disable_collapse": false,
                         "disable_edit_json": false,
@@ -223,36 +253,21 @@ vDataJSON.schema4json =  {
                         "title": {
                             "type": "string",
                             "id": "/properties/axis/properties/x/properties/title",
-                            "title": "x-Axis Title ",
-                            "default": "unit x-axis",
+                            "title": "Title",
+                            "default": "",
                             "format": "text",
-                            "description": "The x-axis title is usually used for the units of the x-axis (e.g. 'years - Age')",
+                            "description": "Description for 'title' Type: 'string' Path: '/properties/axis/properties/x/properties/title'",
                             "options": {
                                 "hidden": false
                             },
                             "propertyOrder": 10
                         },
                         "angle": {
-                            "type": "string",
+                            "type": "integer",
                             "id": "/properties/axis/properties/x/properties/angle",
-                            "title": "x-Axis Angle",
-                            "default": "0",
-                            "enum": [
-                                "0",
-                                "-15",
-                                "-30",
-                                "-45",
-                                "-60",
-                                "-75",
-                                "-90",
-                                "15",
-                                "30",
-                                "45",
-                                "60",
-                                "75",
-                                "90"
-                            ],
-                            "description": "The x-Axis Angle defines the angle for the x-values, e.g. for dates so that the x-value do not overlap. Use -40 degrees for dates or long x-values e.g. 1500000",
+                            "title": "Angle",
+                            "default": 0,
+                            "description": "A description for 'angle'  Type: 'integer'",
                             "options": {
                                 "hidden": false
                             },
@@ -298,9 +313,9 @@ vDataJSON.schema4json =  {
                             "type": "string",
                             "id": "/properties/axis/properties/y/properties/title",
                             "title": "Title",
-                            "default": "unit y-axis",
+                            "default": "",
                             "format": "text",
-                            "description": "The y-axis title is usually used for the units of the y-axis (e.g. 'Kg Weight')",
+                            "description": "Description for 'title' Type: 'string' Path: '/properties/axis/properties/y/properties/title'",
                             "options": {
                                 "hidden": false
                             },
@@ -346,8 +361,7 @@ vDataJSON.schema4json =  {
             "items": {
                 "type": "object",
                 "id": "/properties/data/items",
-                "title": "Data ",
-                "headerTemplate": "Column: {{self.title}}",
+                "title": "Title Root Data ",
                 "options": {
                     "disable_collapse": false,
                     "disable_edit_json": false,
@@ -357,65 +371,40 @@ vDataJSON.schema4json =  {
                 },
                 "defaultProperties": [
                     "name",
-                    "title",
-                    "color",
                     "collist",
-                    "col"
+                    "col",
+                    "color",
+                    "title"
                 ],
                 "properties": {
                     "name": {
                         "type": "string",
                         "id": "/properties/data/items/properties/name",
-                        "title": "Chart Variable Name - Automated Hidden",
-                        "default": "y1",
+                        "title": "Name",
+                        "default": "",
                         "format": "text",
-                        "description": "These variable names are automated set as y1, y2, y3, ... according to index",
+                        "description": "Description for 'name' Type: 'string' Path: '/properties/data/items/properties/name'",
                         "options": {
                             "hidden": false
                         },
                         "propertyOrder": 10
                     },
-                    "title": {
+                    "collist": {
                         "type": "string",
-                        "id": "/properties/data/items/properties/title",
-                        "title": "Title",
+                        "id": "/properties/data/items/properties/collist",
+                        "title": "Collist",
                         "default": "",
                         "format": "text",
-                        "description": "Description for the y-values'",
+                        "description": "Description for 'collist' Type: 'string' Path: '/properties/data/items/properties/collist'",
                         "options": {
                             "hidden": false
                         },
                         "propertyOrder": 20
                     },
-                    "color": {
-                        "type": "string",
-                        "id": "/properties/data/items/properties/color",
-                        "title": "Color y-Values",
-                        "default": "#000000",
-                        "format": "color",
-                        "description": "The defined color is used for line, curve in the graph if 'colorpalette' is set to 'user-defined for 'colorpalette=default' the default colors are used",
-                        "options": {
-                            "hidden": false
-                        },
-                        "propertyOrder": 30
-                    },
-                    "collist": {
-                        "type": "string",
-                        "id": "/properties/data/items/properties/collist",
-                        "title": "Comma Separated Column List",
-                        "default": "",
-                        "format": "text",
-                        "description": "Thes comma seperated y-values in  'collist' a populated and update by json_post_process() and the values are automated concatenated for y1, y2, y3, ... ",
-                        "options": {
-                            "hidden": false
-                        },
-                        "propertyOrder": 40
-                    },
                     "col": {
                         "type": "array",
                         "id": "/properties/data/items/properties/col",
                         "title": "Col",
-                        "headerTemplate": "Values",
                         "format": "tabs",
                         "options": {
                             "disable_collapse": false,
@@ -429,11 +418,36 @@ vDataJSON.schema4json =  {
                         "items": {
                             "type": "number",
                             "id": "/properties/data/items/properties/col/items",
-                            "title": "Value ",
-                            "default": 0.0,
+                            "title": "Title Root Data Col ",
+                            "default": 23.5,
+                            "description": "A description for 'items'  Type: 'number'",
                             "options": {
                                 "hidden": false
                             }
+                        },
+                        "propertyOrder": 30
+                    },
+                    "color": {
+                        "type": "string",
+                        "id": "/properties/data/items/properties/color",
+                        "title": "Color",
+                        "default": "",
+                        "format": "color",
+                        "description": "Description for 'color' Type: 'string' Path: '/properties/data/items/properties/color'",
+                        "options": {
+                            "hidden": false
+                        },
+                        "propertyOrder": 40
+                    },
+                    "title": {
+                        "type": "string",
+                        "id": "/properties/data/items/properties/title",
+                        "title": "Title",
+                        "default": "",
+                        "format": "text",
+                        "description": "Description for 'title' Type: 'string' Path: '/properties/data/items/properties/title'",
+                        "options": {
+                            "hidden": false
                         },
                         "propertyOrder": 50
                     }

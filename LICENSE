@@ -2,6 +2,10 @@ MIT License
 
 Copyright (c) 2020 Engelbert Niehaus
 
+Exeception:
+- MorrisJS in js/morris.js has a modified simplified BSD
+- for licensing od morris.js see LICENCE_morris_js.md
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights

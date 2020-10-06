@@ -105,6 +105,25 @@ function CSV2JSON () {
     return csv_ret;
   };
 
+  this.german_decimals_convert = function (pString) {
+    var vValue = null;
+    var vString = "";
+    if (pString && (typeof(pString) === "string")) {
+      vString = pString.replace(/,/g,".");
+      vValue = parseFloat(vString);
+      if (isNaN(vValue)) {// vString is  not a number
+        console.error("ERROR: pString='" + pString + "' is not a number  -Type: '" + typeof(pString) + "'");
+        vValue = null;
+      } else {
+        // parsing of number sucessful
+        //console.log("pString='" + pString +"' was parsed to float "+ vValue);
+      }
+
+    } else {
+      console.error("ERROR: pString: " + pString + "' is not a String");
+    }
+    return vValue;
+  }
 
   this.convert = function (csv, options, callback) {
     console.log("CALL: CSV2JSON.convert()");
@@ -139,6 +158,7 @@ function CSV2JSON () {
       // i=0 contains the headers
       // k defines the row of the matrix of data.
       for (var k = 1; k < csv_ret.length; k++) {
+        csv_ret[k][i] = this.german_decimals_convert(csv_ret[k][i]);
         rec.col.push(((csv_ret[k][i]) || " NA "));
       }
       rec.collist = rec.col.join(",");
@@ -194,3 +214,41 @@ CSV JQuery: [
 ]
 */
 console.log("CSV Convert: " + JSON.stringify(csv2json.convert(test1csv),null,4))
+
+/*
+CSV Convert: [
+    {
+        "name": "y1",
+        "collist": "8293,18293,1.2",
+        "col": [
+            "8293",
+            "18293",
+            "1.2"
+        ],
+        "color": "#1f77b4",
+        "title": "var1"
+    },
+    {
+        "name": "y2",
+        "collist": "12.3,112.3,12.3",
+        "col": [
+            "12.3",
+            "112.3",
+            "12.3"
+        ],
+        "color": "#ff7f0e",
+        "title": "var2"
+    },
+    {
+        "name": "y3",
+        "collist": "45,45,145,45, NA ",
+        "col": [
+            "45,45",
+            "145,45",
+            " NA "
+        ],
+        "color": "#2ca02c",
+        "title": "time"
+    }
+]
+*/

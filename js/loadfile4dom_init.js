@@ -60,7 +60,13 @@
           var vJSON = editor.getValue();
           if (vJSON) {
             console.log("vJSON exists CSV can be parsed");
-            vJSON.data = csv2json.convert(csv_string)
+            var csv2json_options = {
+              separator: ',',
+              delimiter: '"',
+              headers: true,
+              "colors":vDataJSON.colors
+            };
+            vJSON.data = csv2json.convert(csv_string,csv2json_options);
             console.log("CSV parsed sucessfully and store JSON in JSON Editor");
             editor.setValue(vJSON);
           } else {

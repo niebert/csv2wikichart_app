@@ -10,6 +10,18 @@
           return vSource
         }
 
+        function get_html(pID) {
+          var vSource = "Undefined source in node '" + pID + "'";
+          var vNode = document.getElementById(pID);
+          if (vNode) {
+            vSource = vNode.innerHTML;
+          } else {
+            console.error("DOM node with ID='" + pID + "' undefined!");
+          };
+          return vSource
+        }
+
+
         function escape_html(pHTML) {
           pHTML = pHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
           return pHTML
@@ -32,6 +44,25 @@
           //print_win.close();
           //print_win.close();
         }
+
+        function printChart(pID) {
+          console.log("Print HTML content in DIV element with the ID='" + pID + "'");
+          var print_win = window.open("","wPrintWin","width=600,height=300,scrollbars=1,resizable=1");
+          var code = get_html(pID);
+
+          // Open a print window print_win
+          var vPrint_Node = print_win.document.body; //getElementById('print_body');
+          if (vPrint_Node) {
+            vPrint_Node.innerHTML = "<xcode class=\"javascript\">" + code + "</xcode>";
+          } else {
+            console.error("ERROR: print node in DOM for ID  'print_body' was undefinde");
+          }
+          print_win.focus();
+          //print_win.print();
+          //print_win.close();
+          //print_win.close();
+        }
+
 
         function previewTextArea(pID) {
           console.log("Preview HTML content in DIV element with the ID='" + pID + "'");
