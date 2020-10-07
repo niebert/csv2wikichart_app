@@ -59,12 +59,10 @@ vDataJSON.tpl.template4json =  `
 {{#ifcond showValues "==" "yes"}}
 |showValues=0
 {{/ifcond}}
-<!-- Object: root.axis -->
+<!-- Define the properties of the x-axis -->
 {{#with axis}}
-<!-- Object: root.axis.x -->
 {{#with x}}
 |xAxisTitle={{{title}}}
-<!-- xAxisAngle rotates the x axis labels by the specified angle. Recommended values are: -45, +45, -90, +90 -->
 |xAxisAngle={{{angle}}}
 {{#ifcond scaletype "!=" "linear"}}
 <!-- 'scaletype' was set to value '{{{scaletype}}}'
@@ -75,7 +73,7 @@ vDataJSON.tpl.template4json =  `
 |xAxisMin = 0.1 <!--Needed to avoid trying to show the values x of 0, impossible on log scale because log(0)=-infinity -->
 {{/ifcond}}
 {{/with}}
-<!-- Object: root.axis.y -->
+<!-- Define the properties of the y-axis -->
 {{#with y}}
 |yAxisTitle={{{title}}}
 {{#ifcond scaletype "!=" "linear"}}
@@ -87,28 +85,15 @@ vDataJSON.tpl.template4json =  `
 |yAxisMin = 0.1 <!--Needed to avoid trying to show the values y2, y3 of 0, impossible on log scale because log(0)=-infinity -->
 {{/ifcond}}
 {{/with}}
-<!-- End Object: root.axis.y -->
 {{/with}}
-<!-- End Object: root.axis -->
-<!-- Begin Array: root.data -->
+<!-- Insert CSV data into the Graph-->
 {{#each data}}
-* Sub-Type of Array Element: 'object'
-  <!-- Object: root.data.* -->
 {{#with this}}
-*  {{{name}}}
- <!-- String Format: text -->
-*  {{{collist}}}
- <!-- String Format: text -->
-*
-  <!-- Array: root.data.*.col -->
-<!-- Array Path: root.data.*.col  -->
-{{#each col}}
-* {{{this}}}
-{{/each}}
-  <!-- Array: root.data.*.col -->
-*  {{{color}}}
- <!-- String Format: color -->
-*  {{{title}}}
+<!-- Column List '{{{name}}}': '{{{title}}}' with color of line: '{{{color}}}' -->
+|{{{name}}}= {{{collist}}}
+|{{{name}}}Title={{{title}}}
+{{#concatarray col}}
+<!-- {{#each col}} {{{this}}} {{/each}} -->
  <!-- String Format: text -->
 {{/with}}
   <!-- Object: root.data.* -->

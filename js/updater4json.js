@@ -8,12 +8,15 @@ URL: https://gitlab.com/niehausbert/handlebars4code
 
 
 function enumerate_y_index(pJSON) {
-  var index = 0;
   if (pJSON) {
     if (pJSON.data) {
-      for (var i = 0; i < pJSON.data.length; i++) {
-        index++;
-        pJSON.data[i].name = "y"+index;
+      if (pJSON.data.length > 0) {
+        pJSON.data[0].name = "x";
+      } else {
+        console.error("CALL: updater4json.js:16 - CALL: enumerate_y_index(pJSON) - no x-values available");
+      }
+      for (var i = 1; i < pJSON.data.length; i++) {
+        pJSON.data[i].name = "y"+i;
       }
     }
   }
@@ -45,7 +48,7 @@ function update_column_lists(pJSON) {
   if (pJSON) {
     if (pJSON.data) {
       // start with i=1 because frist data column is contains the x Values
-      for (var i = 1; i < pJSON.data.length; i++) {
+      for (var i = 0; i < pJSON.data.length; i++) {
         pJSON.data[i].collist += (pJSON.data[i].col).join(",");
       }
     } else {

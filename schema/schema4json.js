@@ -65,8 +65,21 @@ vDataJSON.schema4json =  {
             "type": "integer",
             "id": "/properties/linewidth",
             "title": "Linewidth",
-            "default": 1,
+            "default": 2,
             "description": "A description for 'linewidth'  Type: 'integer'",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ],
             "options": {
                 "hidden": false
             },

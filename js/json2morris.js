@@ -10,7 +10,9 @@ var vGraphCount = 0;
 
 function render_graph(pEditor) {
   if (pEditor && pEditor.getValue) {
+    updater4json(pEditor);
     var vJSON = pEditor.getValue();
+    vJSON = update_column_lists(vJSON);
     var vMorrisConfig = json2morris(vJSON);
     if (vMorrisConfig) {
       vGraphCount++;
@@ -19,7 +21,16 @@ function render_graph(pEditor) {
       vMorrisConfig.element = 'report_'+vGraphCount;
       console.log("Create a new graph ID='" + vMorrisConfig.element + "' for MorrisJS");
       app.nav.page("chart");
-      new Morris.Line(vMorrisConfig);
+      switch (vJSON.type) {
+        case "line":
+          new Morris.Line(vMorrisConfig);
+        break;
+        case "area":
+          new Morris.Area(vMorrisConfig);
+        break;
+        default:
+
+      }
     } else {
       alert("ERROR: MorrisJS Graph could not be generated - vMorrisConfig does not exist.");
       console.error("ERROR: render_graph(pEditor) - vMorrisConfig could not be generated!");
@@ -127,8 +138,33 @@ function json2morris(pJSON) {
     var vLabels = [];
     var vLineColors = [];
     var vPointColors = [];
+    var vX_LabelAngle = 0;
+    var vLineWidth = 2;
+    var vSmooth = true;
     var vParseTime = false;
     if (pJSON.data.length > 0) {
+      switch (pJSON.interpolate) {
+        case "line":
+          vSmooth = false;
+          vLineWidth = (parseInt(pJSON.linewidth) || 2);
+        break;
+        case "curve":
+          vLineWidth = (parseInt(pJSON.linewidth) || 2);
+          vSmooth = true;
+        break;
+        case "none":
+          vLineWidth = 0;
+          vSmooth = false;
+        break;
+        default:
+
+      }
+      if (pJSON.axis.x.angle) {
+        vX_LabelAngle = parseInt(pJSON.axis.x.angle) || 0;
+        console.log("x-Label Angle="+vX_LabelAngle);
+      } else {
+        console.warn("x-Label Angle undefined");
+      }
       vX_Key = title2var(pJSON.data[0].title);
       if (pJSON.data[0].col && (pJSON.data[0].col.length > 0)) {
         var vValueObj = parseValue4JSON(pJSON.data[0].col[0]);
@@ -157,6 +193,9 @@ function json2morris(pJSON) {
       labels: vLabels,
       parseTime: vParseTime,
       lineColors: vLineColors,
+      lineWidth: vLineWidth,
+      smooth: vSmooth,
+      xLabelAngle: vX_LabelAngle,
       pointFillColors: vPointColors
     };
     console.log("CALL: json2morris(pJSON) - vMorrisConfig="+JSON.stringify(vMorrisConfig,null,4));
