@@ -69,8 +69,9 @@
     //--- Handlebars4Code: see https://www.github.com/niebert/HandleBars4Code ---
 
     function saveFile2HDD(pFilename,pContent) {
-      var file = new File([pContent], {type: "text/plain;charset=utf-8"});
-      saveAs(file,pFilename);
+      console.log("Blob: saveFile2HDD(pFilename,pContent) pFilename="+JSON.stringify(pFilename,null,4) );
+      var vFile = new Blob([pContent], {type: "text/plain;charset=utf-8"});
+      saveAs(vFile,pFilename);
     }
 
     function saveTemplate2HDD(pContent) {
@@ -408,8 +409,8 @@
       <div class="pages-app" data-role="page" id="settings">
         <h2>Settings</h2>
 			    <!-- This is the page content of the menu item 'Settings' of type 'page' -->
-			    <b>Export Extension Handlebars4Code:</b>
-          <input type='text' id='tExtension' value='.md'>
+			    <b>Export Extension Handlebars4Code for Wiki-Chart:</b>
+          <input type='text' id='tExtension' value='.wiki'>
           <br>
           <button id='bExportSchemaJSON' class="btn4menu">
             <img src="img/icons-svg/fa-file-save-white.svg">
