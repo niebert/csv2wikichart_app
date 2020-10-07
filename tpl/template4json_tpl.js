@@ -5,7 +5,6 @@
 vDataJSON.tpl.template4json =  `
 
 <!-- Created with CSV2WikiChart - URL: https://niebert.github.io/csv2wikichart_app -->
-*
 {{#ifcond type "==" "line"}}
 |type={{{type}}}
 <!--   Attribute 'type' has value 'line' in output format 'mediawiki' -->
@@ -86,17 +85,13 @@ vDataJSON.tpl.template4json =  `
 {{/ifcond}}
 {{/with}}
 {{/with}}
-<!-- Insert CSV data into the Graph-->
+<!-- Define CSV Data into the Graph-->
 {{#each data}}
 {{#with this}}
 <!-- Column List '{{{name}}}': '{{{title}}}' with color of line: '{{{color}}}' -->
-|{{{name}}}= {{{collist}}}
+<!-- Data '{{{title}}}': {{#each col}} {{{this}}} {{/each}} -->
 |{{{name}}}Title={{{title}}}
-|{{name}}}= {{#concatarray col sep=","}}
-<!-- {{#each col}} {{{this}}} {{/each}} -->
- <!-- String Format: text -->
+|{{{name}}}= {{concatarray col ","}}
 {{/with}}
-  <!-- Object: root.data.* -->
 {{/each}}
-  <!-- Array: root.data -->
-  <!-- Object: root -->`;
+`;
