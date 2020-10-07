@@ -52,7 +52,8 @@ vDataJSON.schema4json =  {
             "default": "line",
             "enum": [
                 "line",
-                "stackedarea"
+                "stackedarea",
+                "area"
             ],
             "format": "text",
             "description": "Description for 'type' Type: 'string' Path: '/properties/type'",
