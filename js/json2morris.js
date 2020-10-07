@@ -25,6 +25,9 @@ function render_graph(pEditor) {
         case "line":
           new Morris.Line(vMorrisConfig);
         break;
+        case "stackedarea":
+          new Morris.Area(vMorrisConfig);
+        break;
         case "area":
           new Morris.Area(vMorrisConfig);
         break;

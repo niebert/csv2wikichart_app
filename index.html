@@ -151,6 +151,9 @@
             Save JSON
           </button>
           <input type="text" id="jsonfile" length="10" value="myjson.json">
+          <br>
+          The JSON file stores the data of the loaded CSV and the configuration of graph.
+          <hr>
 
           <!-- Begin: Hidden Buttons -->
           <button id='submit' style="display:none">Submit (console.log)</button>
@@ -159,12 +162,15 @@
           <br>
           <button id='bExportOutput' class="btn4menu">
             <img src="img/icons-svg/fa-file-save-white.svg">
-            Save Handlebars4Code Output
+            Save Wiki Chart Output
           </button>
+          The exported chart in MediaWiki syntax  (see <a href="https://en.wikiversity.org/wiki/CSV2Chart">WikiChart examples in Wikiversity</a>).
+          <hr>
           <button id='bShowTemplate' class="btn4menu" onclick="app.nav.page('settings');return false">
             <img src="img/icons-svg/gear-white.svg">
             Show Template
           </button>
+          Display the Handlebars4Code template, that generates the Wiki Chart of the CSV data.
       </div>
       <div class="pages-app" data-role="page" id="edit">
         <h2>Edit</h2>
@@ -173,6 +179,7 @@
               <img src="img/icons-svg/fa-line-chart-white.svg">
               Show Line Chart
             </button>
+            &nbsp; &nbsp;
             <button id='restore'  class="btn4menu">
               <img src="img/icons-svg/recycle-white.svg">
               Restore to Default
@@ -192,13 +199,14 @@
             <img src="img/icons-svg/fa-folder-open-white.svg">
             Load CSV - File
           </button>
+          Load a CSV File that should be converted into a <a href="https://en.wikipedia.org/wiki/Template:Graph:Chart" target="_blank">Chart for Wikiversity or Wikipedia</a>.
         </li>
         <li>
           <button id="bJSONPreviewInfo" class="btn4menu" onclick="json2morris(editor);app.nav.page('chart');return false">
             <img src="img/icons-svg/fa-line-chart-white.svg">
             Preview Graph
           </button>
-          Check data in a graph with the library <a href="https://morrisjs.github.io/morris.js/" target="_blank">MorrisJS</a>
+          Check data in a graph with the library <a href="https://morrisjs.github.io/morris.js/" target="_blank">MorrisJS</a> as preview
         </li>
         <li>
           <button id="bJSONEditInfo" class="btn4menu" onclick="app.nav.page('edit');return false">
@@ -235,11 +243,11 @@
                 <img src="img/icons-svg/edit-white.svg">
                 Edit Data
               </button>
-              <button id='chart2render'  class="btn4menu"  onclick="app.nav.page('edit');return false">
+              <button id='chart2render'  class="btn4menu"  onclick="app.nav.page('chart');return false">
                 <img src="img/icons-svg/fa-line-chart-white.svg">
-                Edit Data
+                View Chart
               </button>
-                <hr>
+              <hr>
               Please edit the demo data and create the
               <h3>Demo Graph 1</h3>
               <h4>plotted sin(pi * x/180)-function</h4>
