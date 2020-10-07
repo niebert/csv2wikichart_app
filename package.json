@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "build4code": "^0.3.28"
+    "build4code": "^0.3.27"
   },
   "repository": {
     "type": "git",

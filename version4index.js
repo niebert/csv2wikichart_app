@@ -6,7 +6,7 @@ console.log("Set version for 'index.html' and 'index4menu.html' for '" + pkg.nam
 
 
 var vFileName1 = "index.html";
-var vFileName2 = "index_build.html";
+var vFileName2 = "index4menu.html";
 
 console.log("Version2Index Filename: '" + vFileName1 + "' and '" + vFileName2 + "'");
 
