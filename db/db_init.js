@@ -14,12 +14,12 @@ vDataJSON.db_init =  {
     "xAxisAngle": 0,
     "axis": {
         "x": {
-            "title": "",
+            "title": "Monat",
             "angle": 0,
             "scaletype": "linear"
         },
         "y": {
-            "title": "",
+            "title": "Anzahl",
             "scaletype": "linear"
         }
     },

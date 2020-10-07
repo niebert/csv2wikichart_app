@@ -92,7 +92,7 @@ vDataJSON.tpl.template4json =  `
 <!-- Column List '{{{name}}}': '{{{title}}}' with color of line: '{{{color}}}' -->
 |{{{name}}}= {{{collist}}}
 |{{{name}}}Title={{{title}}}
-{{#concatarray col}}
+|{{name}}}= {{#concatarray col sep=","}}
 <!-- {{#each col}} {{{this}}} {{/each}} -->
  <!-- String Format: text -->
 {{/with}}
