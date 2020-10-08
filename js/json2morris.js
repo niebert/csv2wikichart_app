@@ -223,7 +223,7 @@ function parseValue4JSON(pValue) {
   };
   var vValue = "?";
   // check if
-  if (pValue) {
+  if (typeof(pValue) !== undefined) {
     if (typeof(pValue) === "string") {
       console.log("pValue is of type 'string'");
     } else {
