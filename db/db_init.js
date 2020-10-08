@@ -9,6 +9,7 @@ vDataJSON.db_init =  {
     "showSymbols": "",
     "width": 600,
     "height": 480,
+    "legend": "Legend",
     "colorpalette": "default",
     "colors": "",
     "xAxisAngle": 0,
