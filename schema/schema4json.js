@@ -36,6 +36,7 @@ vDataJSON.schema4json =  {
         "linewidth",
         "interpolate",
         "showSymbols",
+        "sizeSymbols",
         "width",
         "height",
         "legend",
@@ -107,18 +108,41 @@ vDataJSON.schema4json =  {
         "showSymbols": {
             "type": "string",
             "id": "/properties/showSymbols",
-            "title": "ShowSymbols",
+            "title": "Show Symbols",
             "enum": [
                 "yes",
                 "no"
             ],
             "default": "yes",
             "format": "text",
-            "description": "Description for 'showSymbols' Type: 'string' Path: '/properties/showSymbols'",
+            "description": "Show data points as symbols in the chart.",
             "options": {
                 "hidden": false
             },
             "propertyOrder": 40
+        },
+        "sizeSymbols": {
+            "type": "integer",
+            "id": "/properties/linewidth",
+            "title": "Size of Symbols",
+            "default": 3,
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ],
+            "options": {
+                "hidden": false
+            },
+            "propertyOrder": 45
         },
         "width": {
             "type": "integer",

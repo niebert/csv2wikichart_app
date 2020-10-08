@@ -30,14 +30,14 @@ vDataJSON.tpl.template4json =  `
 <!--   Attribute 'interpolate' has value 'none' and line thickness was set to 0 so lines disappear -->
 {{/ifcond}}
 {{#ifcond showSymbols "==" "yes"}}
-|showSymbols=1
+|showSymbols={{{sizeSymbols}}}
 {{/ifcond}}
 {{#ifcond showSymbols "==" "no"}}
 {{#ifcond interpolate "==" "none"}}
 <!-- showSymbols was set to 'no' but interpolate was set to 'none' too.
      This configuration of chart will lead to the fact that y-values will not be visible.
      showSymbols was set to '1' as error correction -->
-|showSymbols=1
+|showSymbols={{{sizeSymbols}}}
 {{/ifcond}}
 {{#ifcond interpolate "!=" "none"}}
 |showSymbols=0

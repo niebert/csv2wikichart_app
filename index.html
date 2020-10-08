@@ -165,7 +165,8 @@
             <img src="img/icons-svg/fa-file-save-white.svg">
             Save Wiki Chart Output
           </button>
-          The exported chart in MediaWiki syntax  (see <a href="https://en.wikiversity.org/wiki/CSV2Chart">WikiChart examples in Wikiversity</a>).
+          This saves the final result, i.e. the exported chart in MediaWiki syntax  <br>
+          (see <a href="https://en.wikiversity.org/wiki/CSV2Chart">WikiChart examples in Wikiversity</a>).
           <hr>
           <button id='bShowTemplate' class="btn4menu" onclick="app.nav.page('settings');return false">
             <img src="img/icons-svg/gear-white.svg">
@@ -223,9 +224,13 @@
     <div class="pages-app" data-role="page" id="chart">
         <h2>Chart</h2>
 			    <center>
-            <button id='chart2editor'  class="btn4menu"  onclick="app.nav.page('edit');return false">
+            <button id='bChart2Editor'  class="btn4menu"  onclick="app.nav.page('edit');return false">
               <img src="img/icons-svg/edit-white.svg">
               Edit Data
+            </button>
+            <button id='bChart4SaveJSON' class="btn4menu">
+              <img src="img/icons-svg/fa-file-save-white.svg">
+              Save Chart
             </button>
             <div id="charts" style="width:90%">
               <h3>Information about Graphs for CSV</h3>
