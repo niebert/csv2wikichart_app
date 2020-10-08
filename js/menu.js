@@ -88,7 +88,9 @@ function AppLSAC() {
 				this.goto_page("print");
 			},
 			"show_output": function () {
-				el('app_editor').value = vDataJSON.out.template4json(editor.getValue());
+				var vContent = vDataJSON.out.template4json(editor.getValue());
+				vContent = "{{Graph:Chart\n" + vContent + "\n}}";
+        el('app_editor').value = vContent;
 				this.goto_page("print");
 			},
 			"show_template": function () {

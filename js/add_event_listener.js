@@ -65,6 +65,7 @@
         //var vContent = Handlebars4Code.compile_code(vTplID,vJSON);
         var vCompiler = Handlebars4Code.create_compiler4template(vTemplate);
         var vContent = vCompiler(vJSON);
+        vContent = "{{Graph:Chart\n" + vContent + "\n}}";
         var vFile = getBaseFileName();
         vFile += el("tExtension").value;
         saveFile2HDD(vFile,vContent);
