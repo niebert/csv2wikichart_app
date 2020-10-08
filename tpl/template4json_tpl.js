@@ -46,6 +46,8 @@ vDataJSON.tpl.template4json =  `
 <!-- Width and Height of the rendered image in Wikiversity, Wikipedia, ... -->
 |width={{{width}}}
 |height={{{height}}}
+<!-- Header of the Legend -->
+|legend={{{legend}}}
 {{#ifcond colorpalette "==" "default"}}
 <!--   Attribute 'colorpalette' has value 'default' in CSV2WikiChart
        therefore the curves use the default colors of the Chart template  -->
