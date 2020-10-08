@@ -5,7 +5,7 @@ Wikipedia and Wikiversity have templates for creating a graphs/diagram based on 
 This  WebApp `CSV2WikiChart` is an [AppLSAC](https://en.wikiversity.org/wiki/AppLSAC) with the
 * ([**Processing Data**](https://en.wikiversity.org/wiki/AppLSAC/Processing)) [JSON Editor](https://www.github.com/json-editor/json-editor) by Jeremy Dorn and generating the graph with [HandleBars4Code](https://www.gitlab.com/niehausbert/handlebars4code),
 *  ([**Load Data**](https://en.wikiversity.org/wiki/AppLSAC/Load)) loading data with [LoadFile4DOM](https://github.com/niebert/loadfile4dom) and
-* ([**Load Data**](https://en.wikiversity.org/wiki/AppLSAC/Save)) saving data with [FileSaver.js](https://github.com/eligrey/FileSaver.js/) by Eli Grey.
+* ([**Save Data**](https://en.wikiversity.org/wiki/AppLSAC/Save)) saving data with [FileSaver.js](https://github.com/eligrey/FileSaver.js/) by Eli Grey.
 
 ## Preview of WebApp
 | Title Demo     | URL for Demo     |
