@@ -38,6 +38,7 @@ vDataJSON.schema4json =  {
         "showSymbols",
         "width",
         "height",
+        "legend",
         "colorpalette",
         "colors",
         "xAxisAngle",
@@ -140,6 +141,17 @@ vDataJSON.schema4json =  {
                 "hidden": false
             },
             "propertyOrder": 60
+        },
+        "legend": {
+            "type": "integer",
+            "id": "/properties/legend",
+            "title": "Legend",
+            "default": "Legend",
+            "description": "A Label for the legend for the graph in Wikiversity",
+            "options": {
+                "hidden": false
+            },
+            "propertyOrder": 65
         },
         "colorpalette": {
             "type": "string",
