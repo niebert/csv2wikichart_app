@@ -4,7 +4,7 @@
 
 vDataJSON.db_init =  {
     "type": "line",
-    "linewidth": 1,
+    "linewidth": 2,
     "interpolate": "line",
     "showSymbols": "",
     "width": 600,

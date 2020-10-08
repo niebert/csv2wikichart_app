@@ -165,7 +165,7 @@ vDataJSON.schema4json =  {
             "format": "text",
             "description": "Hidden Comma Separated Values of 'colors' aggregated from the curve colors before export - Type: 'string' Path: '/properties/colors'",
             "options": {
-                "hidden": false
+                "hidden": true
             },
             "propertyOrder": 80
         },
@@ -223,8 +223,8 @@ vDataJSON.schema4json =  {
                     "title": "x-Axis",
                     "options": {
                         "disable_collapse": false,
-                        "disable_edit_json": false,
-                        "disable_properties": false,
+                        "disable_edit_json": true,
+                        "disable_properties": true,
                         "collapsed": false,
                         "hidden": false
                     },
@@ -298,8 +298,8 @@ vDataJSON.schema4json =  {
                     "title": "Y",
                     "options": {
                         "disable_collapse": false,
-                        "disable_edit_json": false,
-                        "disable_properties": false,
+                        "disable_edit_json": true,
+                        "disable_properties": true,
                         "collapsed": false,
                         "hidden": false
                     },
@@ -385,7 +385,7 @@ vDataJSON.schema4json =  {
                         "format": "text",
                         "description": "These variable names are automated set as y1, y2, y3, ... according to index",
                         "options": {
-                            "hidden": false
+                            "hidden": true
                         },
                         "propertyOrder": 10
                     },
@@ -421,7 +421,7 @@ vDataJSON.schema4json =  {
                         "format": "text",
                         "description": "Thes comma seperated y-values in  'collist' a populated and update by json_post_process() and the values are automated concatenated for y1, y2, y3, ... ",
                         "options": {
-                            "hidden": false
+                            "hidden": true
                         },
                         "propertyOrder": 40
                     },
