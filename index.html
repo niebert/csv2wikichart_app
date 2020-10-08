@@ -151,7 +151,7 @@
             <img src="img/icons-svg/fa-file-save-white.svg">
             Save JSON
           </button>
-          <input type="text" id="jsonfile" length="10" value="myjson.json">
+          <input type="text" id="jsonfile" length="30" value="mychart.json">
           <br>
           The JSON file stores the data of the loaded CSV and the configuration of graph.
           <hr>
@@ -161,7 +161,7 @@
           <button id='enable_disable' style="display:none">Disable/Enable Form</button>
           <!--  End: hidden Buttons -->
           <br>
-          <button id='bExportOutput' class="btn4menu">
+          <button id='bExportOutput' class="btn4menu" oncl>
             <img src="img/icons-svg/fa-file-save-white.svg">
             Save Wiki Chart Output
           </button>
@@ -219,6 +219,13 @@
           </button>
           <a href="#" onclick="app.nav.page('edit');return false">Edit CSV data or the settings</a> for the graph in Wikiversity or Wikipedia and check again the  <a href="#" onclick="app.nav.page('chart');return false">preview of the chart</a>
         </li>
+        <li>
+          <button id="bSaveInfo" class="btn4menu" onclick="app.nav.page('save');return false">
+            <img src="img/icons-svg/fa-file-save-white.svg">
+            Save Chart
+          </button>
+          <a href="#" onclick="app.nav.page('edit');return false">Edit CSV data or the settings</a> for the graph in Wikiversity or Wikipedia and check again the  <a href="#" onclick="app.nav.page('chart');return false">preview of the chart</a>
+        </li>
       </ul>
     </div>
     <div class="pages-app" data-role="page" id="chart">
@@ -228,7 +235,7 @@
               <img src="img/icons-svg/edit-white.svg">
               Edit Data
             </button>
-            <button id='bChart4SaveJSON' class="btn4menu">
+            <button id='bChart4SaveJSON' class="btn4menu" onclick="app.nav.page('save');return false">
               <img src="img/icons-svg/fa-file-save-white.svg">
               Save Chart
             </button>
@@ -243,20 +250,7 @@
                 Help CSV Workflow
               </button> Information on basic workflow from CSV data to Wiki Chart.
               <hr>
-              <button id='chart2load'  class="btn4menu"  onclick="app.nav.page('load');return false">
-                <img src="img/icons-svg/fa-load-white.svg">
-                Load CSV Data
-              </button>
-              <button id='chart2editor'  class="btn4menu"  onclick="app.nav.page('edit');return false">
-                <img src="img/icons-svg/edit-white.svg">
-                Edit Data
-              </button>
-              <button id='chart2render'  class="btn4menu"  onclick="app.nav.page('chart');return false">
-                <img src="img/icons-svg/fa-line-chart-white.svg">
-                View Chart
-              </button>
-              <hr>
-              Please edit the demo data and create the
+              Please <a href="#"  onclick="app.nav.page('edit');return false">edit the demo data</a> and create a chart for your data by <a href="#"  onclick="app.nav.page('load');return false">loading a CSV file</a>.
               <h3>Demo Graph 1</h3>
               <h4>plotted sin(pi * x/180)-function</h4>
               <div id="demolinechart" style="width:90%"></div>
@@ -359,7 +353,7 @@
           <hr>
           <center>
             <font size="-1">
-              <b><a href="https://github.com/niebert/csv2wikichart_app/-/archive/master/master.zip">csv2wikichart_app</a></b>  is an <a href="https://en.wikiversity.org/wiki/AppLSAC" target="_blank">AppLSAC</a><br>
+              <b><a href="https://github.com/niebert/csv2wikichart_app/archive/master/master.zip">csv2wikichart_app</a></b>  is an <a href="https://en.wikiversity.org/wiki/AppLSAC" target="_blank">AppLSAC</a><br>
               <a href="https://github.com/niebert/csv2wikichart_app" target="_blank">GitHub Repository with <kbd>csv2wikichart_app</kbd></a>
               <br> Repository uses  <a href="https://www.github.com/json-editor/json-editor" target="_blank">JSON-Editor</a>, <a href="https://github.com/niebert/loadfile4dom" target="_blank">LoadFile4DOM</a>, <a href="https://github.com/eligrey/FileSaver.js/" target="_blank">FileSaver</a> and <a href="https://github.com/niebert/icons4menu/" target="_blank">Icons4Menu</a><br>
               <a href="https://niehausbert.gitlab.com/JSON2Schema" target="_blank">Create your own csv2wikichart_app with JSON2Schema</a>
