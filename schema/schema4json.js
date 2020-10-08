@@ -143,7 +143,7 @@ vDataJSON.schema4json =  {
             "propertyOrder": 60
         },
         "legend": {
-            "type": "integer",
+            "type": "string",
             "id": "/properties/legend",
             "title": "Legend",
             "default": "Legend",
