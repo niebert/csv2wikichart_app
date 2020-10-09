@@ -47,8 +47,11 @@
         saveFile2HDD(vFile,vContent);
       });
 
-      function getBaseFileName() {
+      function getBaseFileName(pFilename) {
         var vFile = el("jsonfile").value;
+        if (pFilename) {
+          vFile = pFilename;
+        }
         if (vFile.indexOf(".")>0) {
           vFile = vFile.substr(0,vFile.indexOf("."));
         }
