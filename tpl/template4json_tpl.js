@@ -35,9 +35,9 @@ vDataJSON.tpl.template4json =  `
 {{#ifcond showSymbols "==" "no"}}
 {{#ifcond interpolate "==" "none"}}
 <!-- showSymbols was set to 'no' but interpolate was set to 'none' too.
-     This configuration of chart will lead to the fact that y-values will not be visible.
+     This configuration of chart will lead to the fact that no curve and no y-values will be be visible.
      showSymbols was set to '1' as error correction -->
-|showSymbols={{{sizeSymbols}}}
+|showSymbols=1
 {{/ifcond}}
 {{#ifcond interpolate "!=" "none"}}
 |showSymbols=0
@@ -50,7 +50,8 @@ vDataJSON.tpl.template4json =  `
 |legend={{{legend}}}
 {{#ifcond colorpalette "==" "default"}}
 <!--   Attribute 'colorpalette' has value 'default' in CSV2WikiChart
-       therefore the curves use the default colors of the Chart template  -->
+       therefore the curves use the default colors of the Chart template
+       user defined colors "{{{colors}}}"  are not used with the "colors=" parameter -->
 {{/ifcond}}
 {{#ifcond colorpalette "==" "user-defined"}}
 <!--   Attribute 'colorpalette' has value 'user-defined' in output format 'mediawiki'
@@ -58,7 +59,7 @@ vDataJSON.tpl.template4json =  `
 |colors={{{colors}}}
 {{/ifcond}}
 {{#ifcond showValues "==" "yes"}}
-|showValues=0
+|showValues={{{sizeValues}}}
 {{/ifcond}}
 <!-- Define the properties of the x-axis -->
 {{#with axis}}
@@ -69,6 +70,9 @@ vDataJSON.tpl.template4json =  `
 <!-- 'scaletype' was set to value '{{{scaletype}}}'
       scale types of the x axes could be set to 'linear' for linear scale (default), 'log' for logarithmic scale and 'sqrt' for square root scale  -->
 |xScaleType={{{scaletype}}}
+{{/ifcond}}
+{{#ifcond grid "==" "yes"}}
+|xGrid=   <!-- show vertical grid lines for x-values -->
 {{/ifcond}}
 {{#ifcond scaletype "==" "log"}}
 |xAxisMin = 0.1 <!--Needed to avoid trying to show the values x of 0, impossible on log scale because log(0)=-infinity -->
@@ -84,6 +88,9 @@ vDataJSON.tpl.template4json =  `
 {{/ifcond}}
 {{#ifcond scaletype "==" "log"}}
 |yAxisMin = 0.1 <!--Needed to avoid trying to show the values y2, y3 of 0, impossible on log scale because log(0)=-infinity -->
+{{/ifcond}}
+{{#ifcond grid "==" "yes"}}
+|yGrid=   <!-- show horizontal grid lines for y-values -->
 {{/ifcond}}
 {{/with}}
 {{/with}}

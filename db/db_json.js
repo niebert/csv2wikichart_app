@@ -13,11 +13,13 @@ vDataJSON.db_json = {
     "x": {
       "title": "x-Values",
       "angle": "0",
-      "scaletype": "linear"
+      "scaletype": "linear",
+      "grid":"no"
     },
     "y": {
       "title": "y-Values",
-      "scaletype": "linear"
+      "scaletype": "linear",
+      "grid":"no"
     }
   },
   "data": [

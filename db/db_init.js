@@ -18,11 +18,13 @@ vDataJSON.db_init =  {
         "x": {
             "title": "Monat",
             "angle": 0,
-            "scaletype": "linear"
+            "scaletype": "linear",
+            "grid":"no"
         },
         "y": {
             "title": "Anzahl",
-            "scaletype": "linear"
+            "scaletype": "linear",
+            "grid":"no"
         }
     },
     "data": [

@@ -267,7 +267,8 @@ vDataJSON.schema4json =  {
                     "defaultProperties": [
                         "title",
                         "angle",
-                        "scaletype"
+                        "scaletype",
+                        "grid"
                     ],
                     "properties": {
                         "title": {
@@ -324,7 +325,24 @@ vDataJSON.schema4json =  {
                                 "hidden": false
                             },
                             "propertyOrder": 30
+                        },
+                        "grid": {
+                            "type": "string",
+                            "id": "/properties/axis/properties/x/properties/grid",
+                            "title": "Show x-Grid Lines",
+                            "enum": [
+                                "yes",
+                                "no"
+                            ],
+                            "default": "no",
+                            "format": "text",
+                            "description": "Show horizontal grid in chart",
+                            "options": {
+                                "hidden": false
+                            },
+                            "propertyOrder": 40
                         }
+
                     },
                     "propertyOrder": 20
                 },
@@ -341,7 +359,8 @@ vDataJSON.schema4json =  {
                     },
                     "defaultProperties": [
                         "title",
-                        "scaletype"
+                        "scaletype",
+                        "grid"
                     ],
                     "properties": {
                         "title": {
@@ -372,7 +391,23 @@ vDataJSON.schema4json =  {
                                 "hidden": false
                             },
                             "propertyOrder": 20
-                        }
+                        },
+                          "grid": {
+                              "type": "string",
+                              "id": "/properties/axis/properties/y/properties/grid",
+                              "title": "Show y-Grid Lines",
+                              "enum": [
+                                  "yes",
+                                  "no"
+                              ],
+                              "default": "no",
+                              "format": "text",
+                              "description": "Show vertical grid in chart",
+                              "options": {
+                                  "hidden": false
+                              },
+                              "propertyOrder": 30
+                          },
                     },
                     "propertyOrder": 30
                 }
