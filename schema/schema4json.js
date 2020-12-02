@@ -55,10 +55,11 @@ vDataJSON.schema4json =  {
             "enum": [
                 "line",
                 "stackedarea",
-                "area"
+                "area",
+                "rect"
             ],
             "format": "text",
-            "description": "Description for 'type' Type: 'string' Path: '/properties/type'",
+            "description": "Type of chart: 'line' for line chart, 'area' is a line chart with colored area under the curve. 'stackedarea' for multiple data column with aggregate area of values as stack. 'rect' for bar charts with rectangular visualization of discrete values",
             "options": {
                 "hidden": false
             },
@@ -69,7 +70,7 @@ vDataJSON.schema4json =  {
             "id": "/properties/linewidth",
             "title": "Linewidth",
             "default": 2,
-            "description": "A description for 'linewidth'  Type: 'integer'",
+            "description": "Defines the 'linewidth'  in pixels as 'integer' value",
             "enum": [
                 0,
                 1,

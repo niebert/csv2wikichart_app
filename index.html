@@ -128,13 +128,13 @@
         <h2>Load</h2>
 			    <!-- place content of the page here CALL: lf4d.open_dialog('mytxtfile') -->
           <button id="bCSVLoad" class="btn4menu" onclick="lf4d.open_dialog('mycsvfile');app.nav.page('edit');return false">
-            <img src="img/icons-svg/fa-folder-open-white.svg">
+            <img width="20px" src="img/icons-svg/fa-folder-open-white.svg">
             Load CSV - Data
           </button>
           Load a CSV File and convert into Chart
           <hr>
           <button id="bJSONLoad" class="btn4menu" onclick="lf4d.open_dialog('myjsonfile');app.nav.page('edit');return false">
-            <img src="img/icons-svg/fa-folder-open-white.svg">
+            <img width="20px" src="img/icons-svg/fa-folder-open-white.svg">
             Load Chart JSON
           </button>
           Load converted Chart JSON with titles and chart settings,
@@ -148,7 +148,7 @@
 			    saveFile2HDD(vFilename,vContent)
 			    -->
           <button id='bExportJSON' class="btn4menu">
-            <img src="img/icons-svg/fa-file-save-white.svg">
+            <img width="20px" src="img/icons-svg/fa-file-save-white.svg">
             Save JSON
           </button>
           <input type="text" id="jsonfile" size="45" value="mychart.json">
@@ -169,7 +169,7 @@
           (see <a href="https://en.wikiversity.org/wiki/CSV2Chart">WikiChart examples in Wikiversity</a>).
           <hr>
           <button id='bShowTemplate' class="btn4menu" onclick="app.nav.page('settings');return false">
-            <img src="img/icons-svg/gear-white.svg">
+            <img width="20px" src="img/icons-svg/gear-white.svg">
             Show Template
           </button>
           Display the Handlebars4Code template, that generates the Wiki Chart of the CSV data.
@@ -178,13 +178,20 @@
         <h2>Edit</h2>
 			    <center>
             <button id='showchart'  class="btn4menu"   onclick="render_graph(editor);app.nav.page('chart');return false">
-              <img src="img/icons-svg/fa-line-chart-white.svg">
+              <img width="20px" src="img/icons-svg/fa-line-chart-white.svg">
               Show Line Chart
             </button>
             &nbsp; &nbsp;
             <button id='restore'  class="btn4menu">
-              <img src="img/icons-svg/recycle-white.svg">
+              <img width="20px" src="img/icons-svg/recycle-white.svg">
               Restore to Default
+            </button>
+            <!--
+            <a href="https://en.wikiversity.org/wiki/Template:Graph:Chart" target="_blank"><img width="34" src="img/icons-svg/info-black.svg"></a>
+            -->
+            &nbsp; &nbsp;
+            <button id='info1chart'  class="btn4menu" onclick="window.open('https://en.wikiversity.org/wiki/Template:Graph:Chart')">
+              <img width="20px" src="img/icons-svg/info-white.svg">
             </button>
             <div style="display:none">
               <b>JSON Validator:</b> <span id='valid_indicator'></span>

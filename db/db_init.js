@@ -11,7 +11,7 @@ vDataJSON.db_init =  {
     "width": 600,
     "height": 480,
     "legend": "Legend",
-    "colorpalette": "default",
+    "colorpalette": "user-defined",
     "colors": "",
     "xAxisAngle": 0,
     "axis": {

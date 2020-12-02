@@ -17,6 +17,11 @@ vDataJSON.tpl.template4json =  `
 |type={{{type}}}
 <!--   Attribute 'type' has value 'stackedarea' as an additive, aggregated y-values to visualize fractions of the total sum -->
 {{/ifcond}}
+{{#ifcond type "==" "rect"}}
+|type={{{type}}}
+<!--   Attribute 'type' has value 'rect' as an additive, aggregated y-values to visualize bar charts i.e. type='rect' -->
+{{/ifcond}}
+{{#ifcond type "!=" "rect"}}
 {{#ifcond interpolate "==" "line"}}
 |linewidth={{{linewidth}}}
 <!--   Attribute 'interpolate' has value 'line' with thinin output format 'mediawiki' -->
@@ -31,6 +36,7 @@ vDataJSON.tpl.template4json =  `
 {{/ifcond}}
 {{#ifcond showSymbols "==" "yes"}}
 |showSymbols={{{sizeSymbols}}}
+{{/ifcond}}
 {{/ifcond}}
 {{#ifcond showSymbols "==" "no"}}
 {{#ifcond interpolate "==" "none"}}

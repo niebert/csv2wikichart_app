@@ -26,13 +26,16 @@ function render_graph(pEditor) {
           new Morris.Line(vMorrisConfig);
         break;
         case "stackedarea":
-          new Morris.Area(vMorrisConfig);
+          new Morris.line(vMorrisConfig);
         break;
         case "area":
           new Morris.Area(vMorrisConfig);
         break;
+        case "rect":
+          new Morris.Bar(vMorrisConfig);
+        break;
         default:
-
+          new Morris.Bar(vMorrisConfig);
       }
     } else {
       alert("ERROR: MorrisJS Graph could not be generated - vMorrisConfig does not exist.");
@@ -150,6 +153,10 @@ function json2morris(pJSON) {
         case "line":
           vSmooth = false;
           vLineWidth = (parseInt(pJSON.linewidth) || 2);
+        break;
+        case "curve":
+          vLineWidth = (parseInt(pJSON.linewidth) || 2);
+          vSmooth = true;
         break;
         case "curve":
           vLineWidth = (parseInt(pJSON.linewidth) || 2);
