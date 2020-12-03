@@ -59,7 +59,7 @@ vDataJSON.tpl.template4json =  `
        therefore the curves use the default colors of the Chart template
        user defined colors "{{{colors}}}"  are not used with the "colors=" parameter -->
 {{/ifcond}}
-{{#ifcond colorpalette "==" "user-defined"}}
+{{#ifcond colorpalette "!=" "default"}}
 <!--   Attribute 'colorpalette' has value 'user-defined' in output format 'mediawiki'
        therefore the colors of the curve are defined by the curve colors for the datarow -->
 |colors={{{colors}}}
