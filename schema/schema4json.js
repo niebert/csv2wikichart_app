@@ -42,7 +42,6 @@ vDataJSON.schema4json =  {
         "legend",
         "colorpalette",
         "colors",
-        "xAxisAngle",
         "axis",
         "data"
     ],
@@ -100,7 +99,7 @@ vDataJSON.schema4json =  {
                 "none"
             ],
             "format": "text",
-            "description": "Description for 'interpolate' Type: 'string' Path: '/properties/interpolate'",
+            "description": "Defines the methof how the data is interpolated, 'linear'=straight lines between the data point or 'curve' for a curved/smooth interpolation between the points. ",
             "options": {
                 "hidden": false
             },
@@ -150,7 +149,7 @@ vDataJSON.schema4json =  {
             "id": "/properties/width",
             "title": "Width",
             "default": 600,
-            "description": "A description for 'width'  Type: 'integer'",
+            "description": "A description for 'width'  of the chart as 'integer' value",
             "options": {
                 "hidden": false
             },
@@ -161,7 +160,7 @@ vDataJSON.schema4json =  {
             "id": "/properties/height",
             "title": "Height",
             "default": 480,
-            "description": "A description for 'height'  Type: 'integer'",
+            "description": "A description for 'height' of the chart as 'integer' value",
             "options": {
                 "hidden": false
             },
@@ -206,38 +205,6 @@ vDataJSON.schema4json =  {
             },
             "propertyOrder": 80
         },
-        "xAxisAngle": {
-            "type": "integer",
-            "id": "/properties/xAxisAngle",
-            "title": "x-Axis Angle",
-            "default": "0",
-            "enum": [
-                "0",
-                "-10",
-                "-20",
-                "-30",
-                "-40",
-                "-50",
-                "-60",
-                "-70",
-                "-80",
-                "-90",
-                "10",
-                "20",
-                "30",
-                "40",
-                "50",
-                "60",
-                "70",
-                "80",
-                "90"
-            ],
-            "description": "The x-Axis Angle defines the angle for the x-values, e.g. for dates so that the x-value do not overlap. Use -40 degrees for dates or long x-values e.g. 1500000",
-            "options": {
-                "hidden": false
-            },
-            "propertyOrder": 100
-        },
         "axis": {
             "type": "object",
             "id": "/properties/axis",
@@ -246,7 +213,7 @@ vDataJSON.schema4json =  {
                 "disable_collapse": false,
                 "disable_edit_json": false,
                 "disable_properties": false,
-                "collapsed": false,
+                "collapsed": true,
                 "hidden": false
             },
             "defaultProperties": [
@@ -262,7 +229,7 @@ vDataJSON.schema4json =  {
                         "disable_collapse": false,
                         "disable_edit_json": true,
                         "disable_properties": true,
-                        "collapsed": false,
+                        "collapsed": true,
                         "hidden": false
                     },
                     "defaultProperties": [
@@ -350,12 +317,12 @@ vDataJSON.schema4json =  {
                 "y": {
                     "type": "object",
                     "id": "/properties/axis/properties/y",
-                    "title": "Y",
+                    "title": "y-Axis",
                     "options": {
                         "disable_collapse": false,
                         "disable_edit_json": true,
                         "disable_properties": true,
-                        "collapsed": false,
+                        "collapsed": true,
                         "hidden": false
                     },
                     "defaultProperties": [
