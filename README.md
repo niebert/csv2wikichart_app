@@ -14,7 +14,8 @@ This  WebApp `CSV2WikiChart` is an [AppLSAC](https://en.wikiversity.org/wiki/App
 ## Preview of WebApp
 | Title Demo     | URL for Demo     |
 | :------------- | :------------- |
-| Default Demo for CSV2WikiChart       | https://niebert.github.io/csv2wikichart_app      |
+| CSV2WikiChart - Default Demo - Graph/Chart template  | https://niebert.github.io/csv2wikichart_app      |
+| VAS4Wiki - Computer Algebra System for Wikiveristy | https://niebert.github.io/WikiversityDoc/cas4wiki.html |
 
 The hamburger menu was create with [JSON2Schema](https://niebert.github.io/JSON2Schema) and [JSONEditor4Menu](https://niehausbert.gitlab.io/jsoneditor4menu/).
 
