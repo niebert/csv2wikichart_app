@@ -5,17 +5,19 @@ function CSV2JSON () {
   this.csv_defaults = {
       separator: ',',
       delimiter: '"',
+      newline: "\n",
       headers: true
   };
-  this.check_newline = function (csv,options) {
+  this.check_newline = function (csv,pNewLine) {
+    var vNewLine = pNewLine || "\n";
     console.log("csv:\n"+csv);
     //var csv_ret = csv.replace(/([\n \r]+)/g,"\n");
-    var csv_ret = csv.replace(/([\n\r|\r\n|\n|\r]+)/g,"\n");
-    csv_ret = csv_ret.replace(/\n[ ]+/g,"\n");
+    var csv_ret = csv.replace(/([\n\r|\r\n|\n|\r]+)/g,vNewLine);
+    csv_ret = csv_ret.replace(/\n[ ]+/g,vNewLine);
     console.log("csv_ret:\n"+csv_ret);
     return csv_ret;
   };
-  this.rows = function (csv,options){
+  this.rows = function (csv,pSep,pNewline){
     // newline symbol
     var vNewLine = pNewLine || "\n";
     // seperator e.g.
@@ -93,13 +95,13 @@ function CSV2JSON () {
           csv_ret = $.csv.toArrays(csv_clean, options, callback);
           console.log("toArray()-Call finished");
         } else {
-          console.error("JQuery '$.csv.toArrays' does not exist!");
+          console.warn("JQuery '$.csv.toArrays' does not exist!");
         }
       } else {
-        console.error("JQuery '$.csv' does not exist!");
+        console.warn("JQuery '$.csv' does not exist!");
       }
     } else {
-      console.error("JQuery '$' does not exist!");
+      console.warn("JQuery '$' does not exist!");
     }
     //csv_ret = csv_clean;
     return csv_ret;
@@ -112,7 +114,7 @@ function CSV2JSON () {
       vString = pString.replace(/,/g,".");
       vValue = parseFloat(vString);
       if (isNaN(vValue)) {// vString is  not a number
-        console.error("ERROR: pString='" + pString + "' is not a number  -Type: '" + typeof(pString) + "'");
+        console.warn("WARNING: pString='" + pString + "' is not a number  -Type: '" + typeof(pString) + "'");
         vValue = null;
       } else {
         // parsing of number sucessful
@@ -120,7 +122,7 @@ function CSV2JSON () {
       }
 
     } else {
-      console.error("ERROR: pString: " + pString + "' is not a String");
+      console.warn("WARNING: pString: " + pString + "' is not a String");
     }
     return vValue;
   }

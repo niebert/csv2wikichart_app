@@ -80,19 +80,19 @@ function updater4json(pEditor) {
                 console.log("Chart y-Axis Title: '" + vJSON.data[1].title + "'");
                 vJSON.axis.y.title = vJSON.data[1].title;
               } else {
-                console.error("ERROR: vJSON.data.length= - no x-axis values found!");
+                console.warn("WARNING: vJSON.data.length= - no x-axis values found!");
               }
               vJSON = update_column_lists(vJSON);
             } else {
-              console.error("ERROR: vJSON.data.length= - no x-axis values found!");
+              console.warn("WARNING: vJSON.data.length= - no x-axis values found!");
             }
           }
         } else {
-          console.error("vJSON.axis.x undefined in updater4json()");
+          console.warn("vJSON.axis.x undefined in updater4json()");
 
         }
       } else {
-        console.error("vJSON.axis undefined in updater4json()");
+        console.warn("vJSON.axis undefined in updater4json()");
 
       }
 

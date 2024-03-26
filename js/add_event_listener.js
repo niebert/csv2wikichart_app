@@ -32,8 +32,20 @@
         var vJSON = editor.getValue();
         var vContent = JSON.stringify(vJSON,null,4);
         var vFile = el("jsonfile").value;
+        el("output4file").value = vContent;
+        $("#div4output4file").show();
         saveFile2HDD(vFile,vContent);
         console.log("JSON output '"+vFile+"':\n"+vContent);
+      });
+      el('bExportSVG').addEventListener('click',function() {
+        // Get the value from the editor
+        var vSVG = editor.getValue();
+        var vContent = getMorris2SVG('charts');
+        el("output4file").value = vContent;
+        $("#div4output4file").show();
+        var vFile = getBaseFileName()+".svg";
+        saveFile2HDD(vFile,vContent);
+        console.log("SVG output '"+vFile+"':\n"+vContent);
       });
 
       // Hook up the submit button to export JSON Schema
@@ -42,6 +54,8 @@
         console.log("BEFORE editor.schema:\n"+JSON.stringify(editor.schema,null,4));
         var vJSON = editor.schema;
         var vContent = JSON.stringify(vJSON,null,4);
+        el("output4file").value = vContent;
+        $("#div4output4file").show();
         var vFile = "json4schema.json";
         console.log("JSON Schema output '"+vFile+"':\n"+vContent);
         saveFile2HDD(vFile,vContent);
@@ -69,6 +83,8 @@
         var vCompiler = Handlebars4Code.create_compiler4template(vTemplate);
         var vContent = vCompiler(vJSON);
         vContent = "{{Graph:Chart\n" + vContent + "\n}}";
+        el("output4file").value = vContent;
+        $("#div4output4file").show();
         var vFile = getBaseFileName();
         vFile += el("tExtension").value;
         saveFile2HDD(vFile,vContent);
