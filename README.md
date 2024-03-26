@@ -1,4 +1,4 @@
-# CSV2WikiChart AppLSAC
+# CSV2WikiChart AppLSAC 1.1.16
 Wikipedia and Wikiversity have templates for creating a graphs/diagram based on data (see [Template:Graph:Chart in Wikipedia](https://en.wikipedia.org/wiki/Template:Graph:Chart)). 
 
 * **[Demo CSV2WikiChart](https://niebert.github.io/csv2wikichart_app)** - WebApp processes data on the client in your browser.
